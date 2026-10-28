@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradient Studio BD — CSS Gradient Builder</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div>
+      <h1>Gradient Studio BD</h1>
+      <p id="tagline">Build beautiful CSS gradients — 12 presets, live preview, contrast check.</p>
+    </div>
+    <button id="langBtn" type="button">বাংলা</button>
+  </header>
+  <p id="msg" class="msg" role="status"></p>
+
+  <section class="card">
+    <h2 id="hPreview">Live preview</h2>
+    <div id="preview" class="preview" aria-label="Gradient preview"></div>
+  </section>
+
+  <section class="card">
+    <h2 id="hEditor">Gradient editor</h2>
+    <div class="row">
+      <label><span id="typeLbl">Type</span>
+        <select id="typeSel">
+          <option value="linear">Linear</option>
+          <option value="radial">Radial</option>
+          <option value="conic">Conic</option>
+        </select>
+      </label>
+      <label id="angleRow"><span id="angleLbl">Angle</span>
+        <input type="range" id="angle" min="0" max="360" value="90">
+        <span id="angleVal">90°</span>
+      </label>
+      <label id="radialRow" style="display:none"><span>Radial position</span>
+        <select id="radialPos">
+          <option value="center">center</option>
+          <option value="top">top</option>
+          <option value="bottom">bottom</option>
+          <option value="left">left</option>
+          <option value="right">right</option>
+        </select>
+      </label>
+    </div>
+    <div id="stops"></div>
+    <div class="row">
+      <button id="addStop" type="button">Add stop</button>
+      <button id="randomBtn" type="button">Random gradient</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 id="hPresets">Presets</h2>
+    <div id="presets" class="presets"></div>
+  </section>
+
+  <section class="card">
+    <h2 id="hSamples">Use it on</h2>
+    <div class="samples">
+      <div id="sampleCard" class="sample-card"><span id="cardText">Sample card</span></div>
+      <button id="sampleBtn" type="button">Sample button</button>
+      <p id="sampleText" class="sample-text">Sample text on your gradient.</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 id="hCss">CSS code</h2>
+    <pre id="cssOut">background: linear-gradient(90deg, #7c3aed 0%, #06b6d4 100%);</pre>
+    <button id="copyBtn" type="button">Copy CSS</button>
+  </section>
+
+  <section class="card">
+    <h2 id="hContrast">Text contrast check</h2>
+    <label>Text color <input type="color" id="textColor" value="#ffffff"></label>
+    <p id="contrastOut"></p>
+    <p class="muted">Contrast is measured against each gradient stop; the worst stop decides the verdict. WCAG AA needs 4.5 for normal text.</p>
+  </section>
+
+  <section class="card">
+    <h2 id="hFavs">My saved gradients</h2>
+    <div class="row">
+      <input type="text" id="favName" placeholder="Name for this gradient" maxlength="60">
+      <button id="saveFav" type="button">Save gradient</button>
+    </div>
+    <div id="favList"></div>
+  </section>
+
+  <section class="card">
+    <h2 id="hData">Data</h2>
+    <div class="row">
+      <button id="exportBtn" type="button">Export JSON</button>
+      <label><span id="importLbl">Import JSON file</span> <input type="file" id="importFile" accept=".json,application/json"></label>
+    </div>
+    <p id="eraseHint" class="muted">Type DELETE to erase all saved gradients.</p>
+    <div class="row">
+      <input type="text" id="eraseInput" placeholder="DELETE" maxlength="10">
+      <button id="eraseBtn" type="button" class="danger">Erase all saved</button>
+    </div>
+  </section>
+
+  <footer class="muted">Offline tool — everything stays in your browser (localStorage only). Gradient colors are design choices, not data claims; check contrast before using a gradient behind real body text.</footer>
+</main>
+<script src="js/logic.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
